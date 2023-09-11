@@ -21,6 +21,12 @@ import { RouterLink, RouterView } from 'vue-router'
               <li class="nav-item">
                 <RouterLink class="nav-link active" to="/listagem">Pedidos</RouterLink>
               </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link active" to="/buscar-artista">Buscar Artista</RouterLink>
+              </li>
+              <li class="nav-item">
+                <RouterLink class="nav-link active" to="/buscar-endereco">Buscar CEP</RouterLink>
+              </li>
             </ul>
           </div>
         </div>
