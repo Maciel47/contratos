@@ -18,14 +18,14 @@ export default {
 	name: 'ResultAddress',
 	data: () => ({
 		artist: '',
-		result: {artist}
+		result: {}
 	}),
 	methods: {
 		getArtist() {
 			const artist = this.artist
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
 				headers: {
-					Authorization: `Bearer BQAqDsYYZLEZwuwUBoyAIazY-L2npkrrHtDEHtySH244QeWtzhrouBW98MfyWpBwd8y5fuo07i3AiE0q188Qt0CfUP_CseIN75EYRQejvKRQs_ZL8QrZBlTRgSbNK0DrThJWk5MBSxsWTyDkO3YXBzHufbqhy-35jFAeuPu45f3nxZiUcMahn3yo_n74xvfbzR5TaA`
+					Authorization: `Bearer `
 				}
 			})
 				.then(result => {
