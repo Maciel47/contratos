@@ -1,5 +1,5 @@
 <template>
   <div class="listagem">
-    <h1>Página de listagem</h1>
+    <h1>Contratos solicitados / encerrados</h1>
   </div>
 </template>
