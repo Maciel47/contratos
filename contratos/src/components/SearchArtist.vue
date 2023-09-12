@@ -8,6 +8,11 @@
 				<button class="btn btn-dark" type="button" id="button-addon2" @click="getArtist()">Buscar</button>
 			</div>
 		</div>
+		<div class="container">
+			<ul class="list-group list-group-flush">
+					<li class="list-group-item">{{ result }}</li>
+				</ul>
+		</div>
 	</div>
 </template>
 
@@ -25,11 +30,11 @@ export default {
 			const artist = this.artist
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
 				headers: {
-					Authorization: `Bearer `
+					Authorization: `Bearer BQCy6u-YImaWLKl8Bs8wbtekueNlfyt8u1vP631sDW-vVxnoDl43T3TXRpfWOIDTzCV6xVhmMMXKhpqArErS_x1R-r76GWayFf8n95hlZbsQVOljpxW26mwlQtGNaPcUK0cxjhFsZFwNbNX2mr5yuR3K46ibjFdS3NCUEDb2yMKfQoz2eS8rbA_CcqoY460QVQTqUw`
 				}
 			})
 				.then(result => {
-					this.result = result.data
+					this.result = result.data.artists.items
 					console.log(this.result)
 				})
 		}
