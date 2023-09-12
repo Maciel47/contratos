@@ -11,10 +11,15 @@
                         <thead>
                             <tr>
                                 <th>Nome Completo</th>
-                                <th>Artista selecionado</th>
+                                <th>Atista Selecionado</th>
+                            </tr>
+                            <tr>
+                                <th>Cachê</th>
+                                <th>Data do evento</th>
                             </tr>
                         </thead>
                     </table>
+                    <h5>Endereço</h5>
                     <SearchAddress/>
                 </div>
             </div>

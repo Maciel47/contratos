@@ -4,39 +4,52 @@
 			<div class="input-group mb-3">
 				<input type="text" class="form-control" v-model="artist"
 					placeholder="Digite o nome do artista (cantor ou banda)" aria-label="Recipient's username"
-					aria-describedby="button-addon2">
-				<button class="btn btn-dark" type="button" id="button-addon2" @click="getArtist()">Buscar</button>
+					aria-describedby="button-addon2" v-on:keyup="getArtist()">
 			</div>
 		</div>
 		<div class="container">
-			<ul class="list-group list-group-flush">
-					<li class="list-group-item">{{ result }}</li>
-				</ul>
+			<select class="form-select" size="10" id="ResultArtist" v-if="artist">
+				<option v-for="(item, index) in result" @click="changeClick(selected_artist = item.name)">
+					{{ index + 1 }} - {{ item.name }}
+				</option>
+			</select>
+		</div>
+		<div class="container">
+			<RouterLink to="/infofrm">
+				<button class="btn btn-dark" v-if="selected_artist!=null">
+					Prosseguir com a contratação
+				</button>
+			</RouterLink>
 		</div>
 	</div>
 </template>
+
 
 <script>
 import axios from 'axios'
 
 export default {
-	name: 'ResultAddress',
+	name: 'ResultArtist',
 	data: () => ({
 		artist: '',
-		result: {}
+		result: {},
+		selected_artist: null
 	}),
 	methods: {
 		getArtist() {
 			const artist = this.artist
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
 				headers: {
-					Authorization: `Bearer BQCy6u-YImaWLKl8Bs8wbtekueNlfyt8u1vP631sDW-vVxnoDl43T3TXRpfWOIDTzCV6xVhmMMXKhpqArErS_x1R-r76GWayFf8n95hlZbsQVOljpxW26mwlQtGNaPcUK0cxjhFsZFwNbNX2mr5yuR3K46ibjFdS3NCUEDb2yMKfQoz2eS8rbA_CcqoY460QVQTqUw`
+					Authorization: `Bearer `
 				}
 			})
-				.then(result => {
-					this.result = result.data.artists.items
-					console.log(this.result)
-				})
+			.then(result => {
+				this.result = result.data.artists.items
+				console.log(this.result)
+			})
+		},
+		changeClick() {
+			this.$emit('changeClick', this.selected_artist)
 		}
 	}
 }
