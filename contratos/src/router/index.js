@@ -17,9 +17,10 @@ const router = createRouter({
       component: ListView
     },
     {
-      path: '/infofrm',
+      path: '/infofrm/',
       name: 'infofrm',
-      component: InfofrmView
+      component: InfofrmView,
+      props: true
     }
   ]
 })

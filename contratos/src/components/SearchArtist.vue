@@ -1,32 +1,29 @@
 <template>
 	<div class="container">
-		<div class="column is-12">
-			<div class="input-group mb-3">
-				<input type="text" class="form-control" v-model="artist"
-					placeholder="Digite o nome do artista (cantor ou banda)" aria-label="Recipient's username"
-					aria-describedby="button-addon2" v-on:keyup="getArtist()">
-			</div>
+		<h2>Buscar artista ou banda:</h2>
+		<div class="input-group mb-3">
+			<input type="text" class="form-control" v-model="artist"
+				placeholder="Digite o nome do artista (cantor ou banda)" aria-label="Recipient's username"
+				aria-describedby="button-addon2" v-on:keyup="getArtist()">
 		</div>
-		<div class="container">
-			<select class="form-select" size="10" id="ResultArtist" v-if="artist">
-				<option v-for="(item, index) in result" @click="changeClick(selected_artist = item.name)">
-					{{ index + 1 }} - {{ item.name }}
-				</option>
-			</select>
-		</div>
-		<div class="container">
-			<RouterLink to="/infofrm">
-				<button class="btn btn-dark" v-if="selected_artist!=null">
-					Prosseguir com a contratação
-				</button>
-			</RouterLink>
-		</div>
+		<select class="form-select" size="10" id="ResultArtist" v-if="artist">
+			<option v-for="(item) in result" @click="selected_artist = item.name"  style="cursor: pointer;">
+				{{ item.name }}
+			</option>
+		</select>
+		<p v-if="selected_artist != null">Escolhido: {{ selected_artist }}</p>
+		<RouterLink to="/infofrm">
+			<button class="btn btn-dark" v-if="selected_artist != null" @click="sendArtistName()">
+				Prosseguir com a contratação
+			</button>
+		</RouterLink>
 	</div>
 </template>
 
 
 <script>
 import axios from 'axios'
+import { RouterLink } from 'vue-router'
 
 export default {
 	name: 'ResultArtist',
@@ -43,13 +40,14 @@ export default {
 					Authorization: `Bearer `
 				}
 			})
-			.then(result => {
-				this.result = result.data.artists.items
-				console.log(this.result)
-			})
+				.then(result => {
+					this.result = result.data.artists.items
+					console.log(this.result)
+				})
 		},
-		changeClick() {
-			this.$emit('changeClick', this.selected_artist)
+		sendArtistName(){
+			const artistName = this.selected_artist;
+			localStorage.setItem(artistName, 'value');
 		}
 	}
 }

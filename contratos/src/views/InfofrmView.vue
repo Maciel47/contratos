@@ -11,7 +11,7 @@
                         <thead>
                             <tr>
                                 <th>Nome Completo</th>
-                                <th>Atista Selecionado</th>
+                                <th>{{ artistName }}</th>
                             </tr>
                             <tr>
                                 <th>Cachê</th>
@@ -29,4 +29,8 @@
 
 <script setup>
     import SearchAddress from '../components/SearchAddress.vue';
+</script>
+
+<script>
+    
 </script>
