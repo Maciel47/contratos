@@ -8,7 +8,11 @@ Este projeto utiliza a API do Spotify para buscar nome de cantores e bandas e re
 
 Vídeo do projeto:
 
-https://github.com/Maciel47/contratos/assets/66790565/25f1bae7-4e4a-4066-8452-38a4529379b7
+
+
+https://github.com/Maciel47/contratos/assets/66790565/8ea8b3e8-2eb7-4543-ab89-2b05b4e457c2
+
+
 
 Caso você queira utiliza-lo em sua máquina, é importante que você saiba de algumas coisas. Portanto, segue o "tutorial":
 
