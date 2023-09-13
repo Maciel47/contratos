@@ -57,7 +57,7 @@
 <script>
 import axios from 'axios'
 import SearchAddress from './SearchAddress.vue';
-import {client_id, client_secret} from '../services/clientServicesPrivate'
+import {client_id, client_secret} from '../services/clientServices'
 
 export default {
 	name: 'ResultArtist',
