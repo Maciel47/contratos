@@ -11,7 +11,7 @@
 					<thead>
 						<tr>
 							<th><input type="text" class="form-control" aria-label="Recipient's username" placeholder="Rua"
-									aria-describedby="button-addon2" v-model="street" disabled></th>
+									aria-describedby="button-addon2" v-model="street"></th>
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
 									placeholder="Número" aria-describedby="button-addon2" v-model="number"></th>
 						</tr>
@@ -19,13 +19,13 @@
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
 									placeholder="Complemento" aria-describedby="button-addon2" v-model="compl"></th>
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
-									placeholder="Bairro" aria-describedby="button-addon2" v-model="neigh" disabled></th>
+									placeholder="Bairro" aria-describedby="button-addon2" v-model="neigh"></th>
 						</tr>
 						<tr>
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
-									placeholder="Cidade" aria-describedby="button-addon2" v-model="city" disabled></th>
+									placeholder="Cidade" aria-describedby="button-addon2" v-model="city"></th>
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
-									placeholder="Estado" aria-describedby="button-addon2" v-model="uf" disabled></th>
+									placeholder="Estado" aria-describedby="button-addon2" v-model="uf" ></th>
 						</tr>
 					</thead>
 				</table>
@@ -51,7 +51,7 @@ export default {
 		maxLength: 8,
 		continueAddress: 1,
 		street: null,
-		number: '',
+		number: null,
 		compl: null,
 		neigh: null,
 		city: null,

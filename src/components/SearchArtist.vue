@@ -28,9 +28,9 @@
 								</tr>
 								<tr>
 									<th><input type="text" class="form-control" v-model="artist_fee"
-											placeholder="Digite o valor do cachê" aria-label="Recipient's username"
+											placeholder="Digite o valor do cachê (R$xxxx,xx)" aria-label="Recipient's username"
 											aria-describedby="button-addon2"></th>
-									<th><input type="text" class="form-control" v-model="event_date"
+									<th><input type="date" class="form-control" v-model="event_date"
 											placeholder="Digite a data do evento" aria-label="Recipient's username"
 											aria-describedby="button-addon2"></th>
 								</tr>
@@ -57,7 +57,7 @@
 <script>
 import axios from 'axios'
 import SearchAddress from './SearchAddress.vue';
-import {client_id, client_secret} from '../services/clientServices'
+import {client_id, client_secret} from '../services/clientServicesPrivate'
 
 export default {
 	name: 'ResultArtist',
@@ -109,13 +109,10 @@ export default {
 		sendInfoArray() {
 			if (this.hirer_name != "" && this.artist_fee != "" && this.event_date != "") {
 				this.continueForm += 1
-				console.log(this.continueForm)
-				this.hirer_info.push(this.hirer_name, this.selected_artist, this.artist_fee, this.event_date)
-				console.log(this.hirer_info)
+				let fee = this.artist_fee.replace(',', '.')
+				this.hirer_info.push(this.hirer_name, this.selected_artist, fee, this.event_date)
 				localStorage.setItem('hirerInfo', this.hirer_info)
-			} else {
-				alert('Preencha todos os campos para prosseguir')
-			}
+			} 
 		},
 	},
 	beforeMount() {
