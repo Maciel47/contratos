@@ -57,12 +57,11 @@
 <script>
 import axios from 'axios'
 import SearchAddress from './SearchAddress.vue';
+import {client_id, client_secret} from '../services/clientServices'
 
 export default {
 	name: 'ResultArtist',
 	data: () => ({
-		client_id: 'df572894fc554aa4913d95b3a474b19e',
-		client_secret: '4b9f349ae51f45f7bd5efcc49f6ff191',
 		token: '',
 		artist: '',
 		selected_artist: null,
@@ -82,15 +81,13 @@ export default {
 						'Content-Type': 'application/x-www-form-urlencoded',
 					},
 					auth: {
-						username: this.client_id,
-						password: this.client_secret,
+						username: client_id,
+						password: client_secret,
 					}
 				})
 				if (data.status == 200) {
 					this.token = data.data.access_token
-					setTimeout(this.generateToken(), 3600000)
-					// valor correto = 3600000
-	
+					setTimeout(this.generateToken, 3600000)
 				}
 			}
 			catch (error) {
@@ -101,7 +98,7 @@ export default {
 			const artist = this.artist;
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
 				headers: {
-					Authorization: `Bearer ${token}`
+					Authorization: `Bearer ${this.token}`
 				}
 			})
 				.then(result => {
