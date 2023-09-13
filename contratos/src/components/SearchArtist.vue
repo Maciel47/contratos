@@ -81,13 +81,16 @@ export default {
 				});
 		},
 		sendInfoArray() {
-			if (this.hirer_name !== "" && this.selected_artist !== "" && this.artist_fee !== "" && this.event_date !== "") {
+			if (this.hirer_name != "" && this.artist_fee != "" && this.event_date != "") {
 				this.continueForm += 1
 				console.log(this.continueForm)
 				this.hirer_info.push(this.hirer_name, this.selected_artist, this.artist_fee, this.event_date)
+				localStorage.setItem(this.hirer_info)
 				console.log(this.hirer_info)
+			} else {
+				alert('Preencha todos os campos para prosseguir')
 			}
-		}
+		},
 	},
 	components: { SearchAddress }
 }

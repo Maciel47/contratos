@@ -5,9 +5,6 @@
         <div class="card">
             <div class="card-header">
                 <h4>Informações do contrato</h4>
-                <!-- <RouterLink to="/infofrm/create" class="btn btn-primary float-end">
-                    Finalizar pedido
-                </RouterLink> -->
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
@@ -25,9 +22,6 @@
             </div>
             <div class="card-header">
                 <h4>Endereço</h4>
-                <!-- <RouterLink to="/infofrm/create" class="btn btn-primary float-end">
-                    Finalizar pedido
-                </RouterLink> -->
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
