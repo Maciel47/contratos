@@ -6,14 +6,14 @@
 					aria-label="Recipient's username" aria-describedby="button-addon2" :maxlength="maxLength"
 					v-on:keyup="getAddress()">
 			</div>
-			<div class="input-group mb-3" v-if="continueAddress > 1">
+			<div class="input-group mb-3" v-if="continueAddress> 1">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
 							<th><input type="text" class="form-control" aria-label="Recipient's username" placeholder="Rua"
 									aria-describedby="button-addon2" v-model="street" disabled></th>
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
-									placeholder="Número" aria-describedby="button-addon2"></th>
+									placeholder="Número" aria-describedby="button-addon2" v-model="number"></th>
 						</tr>
 						<tr>
 							<th><input type="text" class="form-control" aria-label="Recipient's username"
@@ -80,8 +80,8 @@ export default {
 		},
 		sendInfoArray() {
 			this.$swal("Contrato enviado", "Recebemos a sua solicitação de contrato", "success")
-			this.hirer_address.push(this.street, this.compl, this.neigh, this.city, this.uf)
-			localStorage.setItem(this.hirer_address, 'hirerAddress')
+			this.hirer_address.push(this.cep, this.street, this.compl, this.neigh, this.number, this.city, this.uf)
+			localStorage.setItem('hirerAddress', this.hirer_address)
 			console.log(this.hirer_address)
 		}
 	}

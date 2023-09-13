@@ -86,7 +86,7 @@ export default {
 				console.log(this.continueForm)
 				this.hirer_info.push(this.hirer_name, this.selected_artist, this.artist_fee, this.event_date)
 				console.log(this.hirer_info)
-				localStorage.setItem(this.hirer_info, 'hirerInfo')
+				localStorage.setItem('hirerInfo', this.hirer_info)
 			} else {
 				alert('Preencha todos os campos para prosseguir')
 			}
