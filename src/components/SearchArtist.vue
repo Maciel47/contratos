@@ -57,6 +57,7 @@
 <script>
 import axios from 'axios'
 import SearchAddress from './SearchAddress.vue';
+import token from '../services/token';
 
 export default {
 	name: 'ResultArtist',
@@ -72,7 +73,7 @@ export default {
 			const artist = this.artist;
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
 				headers: {
-					Authorization: `Bearer `
+					Authorization: `Bearer ${token}`
 				}
 			})
 				.then(result => {
