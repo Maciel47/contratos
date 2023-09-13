@@ -22,11 +22,11 @@ Caso você queira utiliza-lo em sua máquina, é importante que você saiba de a
 <div id='apiuse'/> 
   
 ## API do Spotify | Como funciona? Como utilizar neste projeto.
-Primeiro acesse: https://developer.spotify.com/documentation/web-api/tutorials/getting-started
+Primeiro acesse: https://developer.spotify.com/documentation/web-api/tutorials/getting-started 
 
-Nesta página, acesse sua conta, ou crie uma. Feito isso, você vai criar um app, colocando apenas as informações básicas. Um detalhe importante, se você não tem experiência para automatizar o processo, no campo "Redirect URIs" coloque a do Postman. Se você não sabe onde econtrar a URI, na secção: Postman | A utilização neste projeto. você encontra. De qualquer forma, pode avançar na criação, pois depois é possível adicionar essa redirect uri.
+Nesta página, acesse sua conta, ou crie uma. Feito isso, você vai criar um app, colocando apenas as informações básicas. Um detalhe importante, se você não tem experiência para automatizar o processo, no campo "Redirect URIs" coloque a do Postman. Se você não sabe onde encontrar a URI, na seção: Postman | A utilização neste projeto. você encontra. De qualquer forma, pode avançar na criação, pois depois é possível adicionar essa redirect uri.
 
-Ao criar o app, você vai acessar, em sua conta: Dashboard > Seu app > Settings. Aqui, você precisa de duas informações: Client ID e Client Secret (obs: Para visualizar o client secrete, basta clicar no link abaixo do client id). Feito isso, agora vamos para o Postman.
+Ao criar o app, você vai acessar, em sua conta: Dashboard > Seu app > Settings. Aqui, você precisa de duas informações: Client ID e Client Secret (obs: Para visualizar o client secret, basta clicar no link abaixo do client id). Feito isso, agora vamos para o Postman.
 
 Obs: Existem duas formas de adquirir o token. No caso, por falta de experiência fiz dessa maneira. Mas o correto é construir dentro do app e esse processo rodar de forma automática. Também é possível que outras pessoas acessem o seu app, mas é necessário algumas credenciais. Não fui afundo nesta situação. Mas pretendo implementar futuramente.
 *******
@@ -34,6 +34,8 @@ Obs: Existem duas formas de adquirir o token. No caso, por falta de experiência
 <div id='getinfoapi'/> 
   
 ## Postman | A utilização neste projeto.
+Eu utilizei o Postman do VSCode, mas você pode utilizar a plataforma que for melhor. Como eu utilizei o postman, os passos a seguir serão relativo ao postman. Caso você utilize outro, não sei como deverá ser feito.
+
 No postman, você vai acessar a aba "Authorization" e selecione o type: OAuth 2.0. Feito isso, localize a área: "Configure New Token". Aqui, você vai preencher e/ou selecionar os campos da seguinte forma:
 
 Grant Type: Authorization Code (Acredito que já vem selecionado este mesmo);
@@ -48,7 +50,7 @@ Client ID: Cole aqui o do Spotify;
 
 Client Secret: Cole aqui o do Spotify;
 
-Scope e State podem ficar vázio;
+Scope e State podem ficar vazio;
 
 Client Authentication: Send as Basic Auth header (Acredito que seja o padrão. Pode deixar).
 

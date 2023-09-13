@@ -40,11 +40,11 @@
 							Prosseguir
 						</button>
 					</div>
-					<div class="card-header" v-if="continueForm > 1" >
+					<div class="card-header" v-if="continueForm > 1">
 						<div class="card-body">
 							<div class="container">
 								<h4>Endereço</h4>
-								<SearchAddress/>
+								<SearchAddress />
 							</div>
 						</div>
 					</div>
@@ -57,18 +57,46 @@
 <script>
 import axios from 'axios'
 import SearchAddress from './SearchAddress.vue';
-import token from '../services/token';
 
 export default {
 	name: 'ResultArtist',
 	data: () => ({
+		client_id: 'df572894fc554aa4913d95b3a474b19e',
+		client_secret: '4b9f349ae51f45f7bd5efcc49f6ff191',
+		token: '',
 		artist: '',
 		selected_artist: null,
 		result: {},
+		resultToken: {},
 		continueForm: 1,
 		hirer_info: []
 	}),
 	methods: {
+		async generateToken() {
+			try {
+				const data = await axios.post('https://accounts.spotify.com/api/token', null, {
+					params: {
+						grant_type: 'client_credentials',
+					},
+					headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+					},
+					auth: {
+						username: this.client_id,
+						password: this.client_secret,
+					}
+				})
+				if (data.status == 200) {
+					this.token = data.data.access_token
+					setTimeout(this.generateToken(), 3600000)
+					// valor correto = 3600000
+	
+				}
+			}
+			catch (error) {
+				console.log(error)
+			}
+		},
 		getArtist() {
 			const artist = this.artist;
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
@@ -92,6 +120,9 @@ export default {
 				alert('Preencha todos os campos para prosseguir')
 			}
 		},
+	},
+	beforeMount() {
+		this.generateToken()
 	},
 	components: { SearchAddress }
 }
