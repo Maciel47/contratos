@@ -3,7 +3,7 @@
     <h2>Contratos solicitados / encerrados</h2>
     <div>
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" v-if="hirerInfoList">
                 <h4>Informações do contrato</h4>
                 <div class="card-body">
                     <table class="table table-bordered">
@@ -44,3 +44,22 @@
     </div>
   </div>
 </template>
+
+<script>
+    export default {
+        name: 'ListResult',
+        data: () => ({
+            hirerInfoList: [],
+            hirerAddressList: []
+        }),
+        methods: {
+            listInfo(){
+                localStorage.getItem('hirerInfo')
+                localStorage.getItem('hirerAddress')
+                this.hirerInfoList.push(hirerInfo)
+                this.hirerAddressList.push(hirerAddress)
+                console.log(this.hirerAddressList[0], this.hirerInfoList)
+            }
+        }
+    }
+</script>

@@ -81,7 +81,7 @@ export default {
 		sendInfoArray() {
 			this.$swal("Contrato enviado", "Recebemos a sua solicitação de contrato", "success")
 			this.hirer_address.push(this.street, this.compl, this.neigh, this.city, this.uf)
-			
+			localStorage.setItem(this.hirer_address, 'hirerAddress')
 			console.log(this.hirer_address)
 		}
 	}
