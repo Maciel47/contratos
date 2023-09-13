@@ -70,6 +70,16 @@ npm install
 
 Feito isso, você vai instalar os pacotes, deixando configurado. Próximo passo, crie um arquivo chamado "token.js" na pasta /src/services.
 
+Neste arquivo, crie o seguinte código:
+
+```javascript
+const token = 'seu-token'
+
+export default token;
+```
+
+Substitua seu-token pelo token que foi gerado no postman que estará tudo pronto.
+
 Para rodar o projeto:
 
 ```sh
