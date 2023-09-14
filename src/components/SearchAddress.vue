@@ -2,6 +2,7 @@
 	<div class="container">
 		<div class="column is-12">
 			<div class="input-group mb-3">
+				<!-- getAddress function to get data from ViaCEP API. -->
 				<input type="text" class="form-control" v-model="cep" placeholder="Digite o seu CEP (sem traço ou símbolos)"
 					aria-label="Recipient's username" aria-describedby="button-addon2" :maxlength="maxLength"
 					v-on:keyup="getAddress()">
@@ -30,6 +31,7 @@
 					</thead>
 				</table>
 				<RouterLink to="/listagem">
+					<!-- sendInfoArray to send data to ListView. -->
 					<button class="btn btn-success" @click="sendInfoArray()">
 						Finalizar contrato
 					</button>
@@ -59,6 +61,7 @@ export default {
 		hirer_address: []
 	}),
 	methods: {
+		// Get ViaCEP information.
 		getAddress() {
 			const cep = this.cep
 			if (this.maxLength == 0) {
@@ -78,6 +81,7 @@ export default {
 			}
 
 		},
+		// Send information to ListView.
 		sendInfoArray() {
 			this.$swal("Contrato enviado", "Recebemos a sua solicitação de contrato", "success")
 			this.hirer_address.push(this.cep, this.street, this.compl, this.neigh, this.number, this.city, this.uf)

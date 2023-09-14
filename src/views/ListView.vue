@@ -1,8 +1,9 @@
 <template>
     <div class="container">
-        <h2>Contratos solicitados / encerrados</h2>
+        <h2>Último contrato solicitado / finalizado</h2>
         <div>
             <div class="card">
+                <!-- Decision structure to decide what to display according to the information in localstorage. -->
                 <div class="card-header" v-if="hirerInfoList.length > 0">
                     <h4>Informações do contrato</h4>
                     <div class="card-body">
@@ -28,7 +29,8 @@
                         </table>
                     </div>
                 </div>
-                <div v-else>Não há contratos </div>
+                <div v-else class="card-header"><h3>Não há nenhum contrato realizado. Para verificar, realize a solicitação do contrato.</h3></div>
+                <!-- Decision structure to decide when to display the information. -->
                 <div class="card-header" v-if="hirerAddressList.length > 0">
                     <h4>Endereço</h4>
                     <div class="card-body">
@@ -88,6 +90,7 @@ export default {
         uf: null,
     }),
     methods: {
+        // get information from the SearchArtist wich is located in localStorage.
         listInfo() {
             if (localStorage.getItem('hirerInfo')) {
                 this.strInfo = localStorage.getItem('hirerInfo')
@@ -101,6 +104,7 @@ export default {
                 var year = eventDay.getFullYear();
                 this.event_date = day + '/' + month + '/' + year;
             }
+            // get information from the SearchAddress wich is located in localStorage.
             if (localStorage.getItem('hirerAddress')) {
                 this.strAddress = localStorage.getItem('hirerAddress')
                 this.hirerAddressList = this.strAddress.split(',')
@@ -114,6 +118,7 @@ export default {
             }
         }
     },
+    // For execution autonomy: verify localStorage for information.
     beforeMount() {
         this.listInfo()
     }

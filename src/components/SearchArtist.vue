@@ -2,10 +2,12 @@
 	<div class="container">
 		<h2>Buscar artista ou banda:</h2>
 		<div class="input-group mb-3">
+			<!-- getArtist function to get data from Spotify API. -->
 			<input type="text" class="form-control" v-model="artist"
 				placeholder="Digite o nome do artista (cantor ou banda)" aria-label="Recipient's username"
 				aria-describedby="button-addon2" v-on:keyup="getArtist()">
 		</div>
+		<!-- Loop to fetch information from the vector received in the artist and band query. -->
 		<select class="form-select" size="10" id="ResultArtist" v-if="artist">
 			<option v-for="(item) in result" @click="selected_artist = item.name" style="cursor: pointer;">
 				{{ item.name }}
@@ -36,6 +38,7 @@
 								</tr>
 							</thead>
 						</table>
+						<!-- sendInfoArray to send data to ListView. -->
 						<button class="btn btn-dark" v-if="selected_artist != null" @click="sendInfoArray()">
 							Prosseguir
 						</button>
@@ -71,6 +74,7 @@ export default {
 		hirer_info: []
 	}),
 	methods: {
+		// The Spotify API token only lasts for one hour, so this function (generateToken) fetches the token and stores it.
 		async generateToken() {
 			try {
 				const data = await axios.post('https://accounts.spotify.com/api/token', null, {
@@ -91,9 +95,10 @@ export default {
 				}
 			}
 			catch (error) {
-				console.log(error)
+				
 			}
 		},
+		// get Spotify information.
 		getArtist() {
 			const artist = this.artist;
 			axios.get(`https://api.spotify.com/v1/search?query=${artist}&type=artist`, {
@@ -103,9 +108,10 @@ export default {
 			})
 				.then(result => {
 					this.result = result.data.artists.items;
-					console.log(this.result);
+				
 				});
 		},
+		// send information to ListView.
 		sendInfoArray() {
 			if (this.hirer_name != "" && this.artist_fee != "" && this.event_date != "") {
 				this.continueForm += 1
@@ -115,6 +121,7 @@ export default {
 			} 
 		},
 	},
+	// For execution autonomy: get token process before adding the component to the page.
 	beforeMount() {
 		this.generateToken()
 	},
