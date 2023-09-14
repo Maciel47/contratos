@@ -20,7 +20,7 @@ Caso você queira utilizar este projeto em sua máquina, basta seguir estes pass
  1. [API do Spotify | Como funciona? Como utilizar neste projeto.](#apiuse)
  2. [Rodando o projeto](#rundev)
  3. [Limpando o localStorage](#afteruse)
- 4. [Dica: Utilizando o projeto com o Postman](#littletip)
+ 4. [Dica: Gerando token com o Postman](#littletip)
  
 
 
@@ -77,8 +77,8 @@ Para limpar no Edge, acesse a debugger tool (ctrl + shift + i), localize a aba A
 
 <div id='littletip'/> 
   
-## Dica: Utilizando o projeto com o Postman.
-Inicialmente, eu não tinha o processo rodando no próprio software, portanto utilizei Postman e vou explicar o funcionamento caso você opte por utilizar. Eu utilizei a extensão do VSCode, mas você pode utilizar a plataforma que for melhor. Como eu utilizei o postman, os passos a seguir serão relativo a ele. Caso você utilize outro, será necessário que você busque o funcionamento dele.
+## Dica: Gerando token com o Postman.
+Inicialmente, eu não tinha o processo rodando no próprio software, portanto utilizei Postman e como aprendi a utilizar, vou explicar o funcionamento caso você opte por utilizar ou queira testar como funciona. Eu utilizei a extensão do VSCode, mas você pode utilizar a plataforma que for melhor. Como eu utilizei o postman, os passos a seguir serão relativo a ele. Caso você utilize outro, será necessário que você busque o funcionamento dele.
 
 No postman, você vai acessar a aba "Authorization" e selecionar o type: OAuth 2.0. Feito isso, localize a área: "Configure New Token". Aqui, você vai preencher e/ou selecionar os campos da seguinte forma:
 
