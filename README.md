@@ -29,7 +29,7 @@ Caso você queira utilizar este projeto em sua máquina, basta seguir estes pass
 <div id='apiuse'/> 
   
 ## API do Spotify | Como funciona? Como utilizar neste projeto.
-Primeiro acesse: https://developer.spotify.com/documentation/web-api/tutorials/getting-started 
+Primeiro acesse (para abrir em uma nova guia: Crtl + clique botão esquerdo do mouse): https://developer.spotify.com/documentation/web-api/tutorials/getting-started 
 
 Nesta página, acesse sua conta, ou crie uma. Feito isso, você vai criar um app, colocando apenas as informações básicas. Um detalhe importante, se você não tem experiência para automatizar o processo, no campo "Redirect URIs" coloque a que você utiliza em seu projeto com a adição do '/callback'. Exemplo: http://localhost:5000/callback. 
 
