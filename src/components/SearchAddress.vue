@@ -76,7 +76,6 @@ export default {
 						this.city = result.data.localidade
 						this.uf = result.data.uf
 						this.continueAddress += 1
-						console.log(this.result.data)
 					})
 			}
 
@@ -86,7 +85,6 @@ export default {
 			this.$swal("Contrato enviado", "Recebemos a sua solicitação de contrato", "success")
 			this.hirer_address.push(this.cep, this.street, this.compl, this.neigh, this.number, this.city, this.uf)
 			localStorage.setItem('hirerAddress', this.hirer_address)
-			console.log(this.hirer_address)
 		}
 	}
 }

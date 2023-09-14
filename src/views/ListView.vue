@@ -29,7 +29,11 @@
                         </table>
                     </div>
                 </div>
-                <div v-else class="card-header"><h3>Não há nenhum contrato realizado. Para verificar, realize a solicitação do contrato.</h3></div>
+                <div v-else class="card-header">
+                    <div class="alert alert-primary d-flex align-items-center" role="alert">
+                        <h3>Não há contrato. Realize o preenchimento dele para consultar.</h3>
+                    </div>
+                </div>
                 <!-- Decision structure to decide when to display the information. -->
                 <div class="card-header" v-if="hirerAddressList.length > 0">
                     <h4>Endereço</h4>
